@@ -6,6 +6,9 @@ import cv2 as cv
 import numpy as np
 from PIL import Image
 from utils.cv_filters import strel_line, imadjust, gaussian_kernel, wiener_filter, laplacianOfGaussian
+import os
+
+os.environ['DISPLAY'] = ':0'
 
 def main():
     image_s=None
