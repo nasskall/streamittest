@@ -10,6 +10,7 @@ import os
 
 
 def main():
+
     os.environ['DISPLAY'] = ':0'
     image_s=None
     image_h=None
