@@ -8,9 +8,9 @@ from PIL import Image
 from utils.cv_filters import strel_line, imadjust, gaussian_kernel, wiener_filter, laplacianOfGaussian
 import os
 
-os.environ['DISPLAY'] = ':0'
 
 def main():
+    os.environ['DISPLAY'] = ':0'
     image_s=None
     image_h=None
     st.title("Dermoscopy Images Preprocessing")
