@@ -62,7 +62,7 @@ def imadjust(src, tol=1, vin=[0, 255], vout=(0, 255)):
     if tol > 0:
         # Compute in and out limits
         # Histogram
-        hist = np.zeros(256, dtype=np.int)
+        hist = np.zeros(256, dtype=int)
         for r in range(src.shape[0]):
             for c in range(src.shape[1]):
                 hist[src[r, c]] += 1

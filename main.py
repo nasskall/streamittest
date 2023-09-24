@@ -1,19 +1,18 @@
 # This is a sample Python script.
+import pyautogui as pyautogui
 import streamlit as st
 import time
 import cv2 as cv
 import numpy as np
 from PIL import Image
-from utils import SessionState  # Assuming SessionState.py lives on this folder
 from utils.cv_filters import strel_line, imadjust, gaussian_kernel, wiener_filter, laplacianOfGaussian
 
-session = SessionState.get(run_id=0)
 def main():
     image_s=None
     image_h=None
     st.title("Dermoscopy Images Preprocessing")
     process = st.sidebar.radio('Type of process', ('Registration','Shaver'))
-    with st.beta_container():
+    with st.container():
         if process == 'Registration':
             st.title("Registration")
             st.sidebar.write('You selected registration')
@@ -50,7 +49,7 @@ def main():
                         # Match the two sets of descriptors.
                         matches = matcher.match(des1, des2)
                         # Sort matches on the basis of their Hamming distance.
-                        matches.sort(key=lambda x: x.distance)
+                        matches = sorted(matches,key=lambda x:x.distance)
                         # Take the top 70 % matches forward.
                         matches = matches[:int(len(matches) * austerity)]
                         no_of_matches = len(matches)
@@ -75,10 +74,10 @@ def main():
                             st.image(output_image, caption='Registered Image', width=300)
                             st.success('Done')
                             if st.button('Try Again'):
-                                session.run_id += 1
+                                pyautogui.hotkey("ctrl", "F5")
 
         else:
-            with st.beta_container():
+            with st.container():
                 st.sidebar.write("You selected shaver")
                 st.title("Shaver")
                 sample = st.file_uploader("Choose an image...")
@@ -116,7 +115,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        session.run_id += 1
+                                        pyautogui.hotkey("ctrl", "F5")
                                 else:
                                     st.write('Operation failed')
                     if process=='Laplacian':
@@ -148,7 +147,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        session.run_id += 1
+                                        pyautogui.hotkey("ctrl", "F5")
                                 else:
                                     st.write('Operation failed')
                     if process=='Log':
@@ -171,7 +170,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        session.run_id += 1
+                                        pyautogui.hotkey("ctrl", "F5")
                                 else:
                                     st.write('Operation failed')
                     if process=='Lls':
@@ -209,7 +208,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        session.run_id += 1
+                                        pyautogui.hotkey("ctrl", "F5")
                                 else:
                                     st.write('Operation failed')
                     if process=='Logsobel':
@@ -252,7 +251,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        session.run_id += 1
+                                        pyautogui.hotkey("ctrl", "F5")
                                 else:
                                     st.write('Operation failed')
 
