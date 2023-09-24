@@ -74,6 +74,7 @@ def main():
                             st.image(output_image, caption='Registered Image', width=300)
                             st.success('Done')
                             if st.button('Try Again'):
+                                st.experimental_rerun()
 
         else:
             with st.container():
@@ -114,6 +115,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
+                                        st.experimental_rerun()
 
                                 else:
                                     st.write('Operation failed')
@@ -146,6 +148,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
+                                        st.experimental_rerun()
 
                                 else:
                                     st.write('Operation failed')
@@ -169,6 +172,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
+                                        st.experimental_rerun()
                                 else:
                                     st.write('Operation failed')
                     if process=='Lls':
@@ -206,6 +210,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
+                                        st.experimental_rerun()
                                 else:
                                     st.write('Operation failed')
                     if process=='Logsobel':
@@ -248,6 +253,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
+                                        st.experimental_rerun()
 
                                 else:
                                     st.write('Operation failed')
