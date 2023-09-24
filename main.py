@@ -1,17 +1,13 @@
 # This is a sample Python script.
-import pyautogui as pyautogui
 import streamlit as st
 import time
 import cv2 as cv
 import numpy as np
 from PIL import Image
 from utils.cv_filters import strel_line, imadjust, gaussian_kernel, wiener_filter, laplacianOfGaussian
-import os
 
 
 def main():
-
-    os.environ['DISPLAY'] = ':0'
     image_s=None
     image_h=None
     st.title("Dermoscopy Images Preprocessing")
@@ -78,7 +74,6 @@ def main():
                             st.image(output_image, caption='Registered Image', width=300)
                             st.success('Done')
                             if st.button('Try Again'):
-                                pyautogui.hotkey("ctrl", "F5")
 
         else:
             with st.container():
@@ -119,7 +114,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        pyautogui.hotkey("ctrl", "F5")
+
                                 else:
                                     st.write('Operation failed')
                     if process=='Laplacian':
@@ -151,7 +146,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        pyautogui.hotkey("ctrl", "F5")
+
                                 else:
                                     st.write('Operation failed')
                     if process=='Log':
@@ -174,7 +169,6 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        pyautogui.hotkey("ctrl", "F5")
                                 else:
                                     st.write('Operation failed')
                     if process=='Lls':
@@ -212,7 +206,6 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        pyautogui.hotkey("ctrl", "F5")
                                 else:
                                     st.write('Operation failed')
                     if process=='Logsobel':
@@ -255,7 +248,7 @@ def main():
                                     st.image(output_image, caption='Shaved Image', width=300)
                                     st.success('Done')
                                     if st.button('Try Again'):
-                                        pyautogui.hotkey("ctrl", "F5")
+
                                 else:
                                     st.write('Operation failed')
 
